@@ -16,6 +16,7 @@ class SubTask < ActiveRecord::Base
 
   # associations
   belongs_to :daily
+  belongs_to :task
   belongs_to :sub_task_master
   has_many :sub_task_competencies, :dependent => :destroy
 

@@ -1,0 +1,57 @@
+<style type="text/css">
+    body.active_admin form input[type="text"], body.active_admin form input[type="password"], body.active_admin form input[type="email"], body.active_admin form input[type="number"], body.active_admin form input[type="url"], body.active_admin form input[type="tel"], body.active_admin form textarea {
+        width: 70%;
+    }
+</style>
+<%= javascript_include_tag "application" %>
+<script type="text/javascript">
+    $(function () {
+        $('FORM').nestedFields();
+    })
+</script>
+
+<%= semantic_form_for [:admin, @task] do |f| %>
+    <table style="width: 100%">
+      <tr>
+        <td>
+          <%= f.inputs do %>
+              <%= f.input :action_point %>
+              <%= f.input :task_master %>
+              <%= f.input :due_date %>
+              <%= f.input :status %>
+          <% end %>
+          <%#= f.hidden_field :id %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h2>Associated Sub-tasks
+            <a href="#" class="add" style="float:right;font-size: 18px;">Add Sub-task</a>
+          </h2>
+          <br>
+          <br>
+
+          <div class="items">
+            <%= f.nested_fields_for :sub_tasks do |f| %>
+                <fieldset class="item" style="margin-top: -50px;">
+                  <%= f.inputs do %>
+                      <a href="#" class="remove" style="float:right; margin-right: 20px;">Remove</a>
+                      <%= f.input :daily %>
+                      <%= f.input :task %>
+                      <%= f.input :sub_task_master %>
+                      <%= f.input :status %>
+                  <% end %>
+                  <%= f.hidden_field :id %>
+                  <%= f.hidden_field :_destroy %>
+                </fieldset>
+            <% end %>
+          </div>
+
+        </td>
+      </tr>
+    </table>
+
+
+    <%= f.actions %>
+<% end %>
+

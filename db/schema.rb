@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212054118) do
+ActiveRecord::Schema.define(:version => 20121212150741) do
 
   create_table "action_points", :force => true do |t|
     t.integer  "meeting_id"
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(:version => 20121212054118) do
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
     t.string   "status",             :default => "Due"
+    t.integer  "task_id"
   end
 
   add_index "sub_tasks", ["daily_id"], :name => "index_sub_tasks_on_daily_id"

@@ -19,7 +19,7 @@ class SubTaskMaster < ActiveRecord::Base
 
   # validations
 
-  validates :name, :competency, :typical, presence: true
+  #validates :name, :competency, :typical, presence: true
 
   # validates :name, length: TODO
   # validates :typical, length: TODO
