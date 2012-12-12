@@ -1,0 +1,57 @@
+Company:
+  name: string
+
+Employee:
+  admin_user_id: integer
+  company_id: integer
+  name: string
+  phone: string
+  email: string
+
+Product:
+  name: string
+
+Meeting:
+  employee_id: integer
+  company_id: integer
+  product_id: integer
+  description: text
+  meeting_date: date
+
+Action_Point:
+  meeting_id: integer
+  name: text
+  due_date: date
+
+Competency:
+  name: string
+
+TaskMaster:
+  name: string
+
+SubTaskMaster:
+  name: string
+  competency_id: integer
+  typical: string
+
+Task:
+  action_point_id: integer
+  task_master_id: integer
+  due_date: date
+
+SubTask:
+  task_id: integer
+  sub_task_master_id: integer
+  employee_id: integer
+  due_date: date
+  completion_date: date
+
+SubTaskCompetency:
+  sub_task_id: integer
+  competency_id: integer
+  value: string
+
+EmployeeCompetency:
+  employee_id: integer
+  competency_id: integer
+  handicap: integer
